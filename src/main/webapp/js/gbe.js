@@ -1,4 +1,4 @@
-var tt, tt2;
+var tt;
 
 $(document).ready(function () {
     $('#w').hide();
@@ -9,15 +9,10 @@ $(document).ajaxStart(function () {
     tt = setTimeout(function () {
         $('#w').show();
     }, 600);
-
-    tt2 = setTimeout(function () {
-        window.top.location.reload(true);
-    }, 6000);
 });
 
 $(document).ajaxComplete(function (event, xhr, settings) {
     clearTimeout(tt);
-    clearTimeout(tt2);
     $('#w').hide();
     $("#f :input").prop("disabled", false);
 });
