@@ -40,12 +40,13 @@
         <br/>
     </div>
     <div class="row">
-        <form name="f" onsubmit="return s()">
+        <form name="f" id="f" onsubmit="return s()">
             <input id="ts" type="text" maxlength="20" placeholder="Porcodio Search" required>
             <input type="submit" class="btn btn-danger" value="Search">
             <input type="button" class="btn btn-danger" value="Spara!" onclick="sr()">
         </form>
         <br/>
+        <img id="w" src="images/ajax-wait.gif">
     </div>
 
     <div class="row">
