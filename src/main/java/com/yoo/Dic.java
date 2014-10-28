@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * 
+ */
 public class Dic {
     private final Map<String, List<String>> resCache;
     private final List<String> dic;
