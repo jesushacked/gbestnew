@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * 
+ *
  */
 public class Dic {
     private final Map<String, List<String>> resCache;

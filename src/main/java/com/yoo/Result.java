@@ -1,8 +1,7 @@
 package com.yoo;
 
 /**
- * User: msaccotelli
- * Date: 9/11/2014
+ *
  */
 public class Result {
     private final String res;
