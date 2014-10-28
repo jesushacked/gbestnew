@@ -36,7 +36,7 @@ public class Prs {
                     if (
                             StringUtils.indexOfIgnoreCase(l1, "dio ") == 0 ||
                                     StringUtils.indexOfIgnoreCase(l1, "cristo ") == 0 ||
-                                    StringUtils.indexOfIgnoreCase(l1, "madonn ") == 0
+                                    StringUtils.indexOfIgnoreCase(l1, "madonna ") == 0
                             ) {
 
                         bb.add(l1);

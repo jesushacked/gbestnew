@@ -1,5 +1,25 @@
+var tt, tt2;
+
 $(document).ready(function () {
     $('#w').hide();
+});
+
+$(document).ajaxStart(function () {
+    $("#f :input").prop("disabled", true);
+    tt = setTimeout(function () {
+        $('#w').show();
+    }, 600);
+
+    tt2 = setTimeout(function () {
+        window.top.location.reload(true);
+    }, 6000);
+});
+
+$(document).ajaxComplete(function (event, xhr, settings) {
+    clearTimeout(tt);
+    clearTimeout(tt2);
+    $('#w').hide();
+    $("#f :input").prop("disabled", false);
 });
 
 function s() {
@@ -12,11 +32,6 @@ function sr() {
 }
 
 function ss(st) {
-    $("#f :input").prop("disabled", true);
-    var tt = setTimeout(function () {
-        $('#w').show();
-    }, 600);
-
     $.ajax({
         type: 'POST',
         url: 'q.nrk',
@@ -24,10 +39,6 @@ function ss(st) {
         data: { q: st },
         headers: { j: '19238183766162' }
     }).done(function (data) {
-        clearTimeout(tt);
-        $('#w').hide();
-        $("#f :input").prop("disabled", false);
-
         if (!data || !data['d'] || !data['d'][0] || !data['d'][0]['o'] || 0 === data['d'][0]['o']) {
             $('#rs0').html('Forse cercavi porcodio?');
             $('#rs1').html('');
