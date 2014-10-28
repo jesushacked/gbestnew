@@ -19,8 +19,8 @@ function ss(st) {
             $('#rs0').html('Forse cercavi porcodio?');
             $('#rs1').html('');
         } else {
-            $('#rs0').html(data['d'][0]['s'] + ' ' + data['d'][0]['n'] + "/" + data['d'][0]['o']);
-            $('#rs1').html(data['d'][1]['s'] + ' ' + data['d'][1]['n'] + "/" + data['d'][1]['o']);
+            $('#rs0').html(data['d'][0]['s'] + ' (' + data['d'][0]['n'] + "/" + data['d'][0]['o'] + ')');
+            $('#rs1').html(data['d'][1]['s'] + ' (' + data['d'][1]['n'] + "/" + data['d'][1]['o'] + ')');
         }
     });
 }

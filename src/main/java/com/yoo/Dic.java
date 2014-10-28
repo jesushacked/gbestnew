@@ -62,23 +62,27 @@ public class Dic {
     }
 
 
-    public synchronized Result search(final String searchTerm) {
-        if (resCache.size() > 10000) {
-            resCache.clear();
-        }
+    public Result search(final String searchTerm) {
+        List<String> results;
 
-        List<String> results = resCache.get(searchTerm);
-
-        if (results == null) {
-            results = new ArrayList<String>();
-
-            for (final String ss : dic) {
-                if (StringUtils.containsIgnoreCase(ss, searchTerm)) {
-                    results.add(ss);
-                }
+        synchronized (this) {
+            if (resCache.size() > 10000) {
+                resCache.clear();
             }
 
-            resCache.put(searchTerm, results);
+            results = resCache.get(searchTerm);
+
+            if (results == null) {
+                results = new ArrayList<String>();
+
+                for (final String ss : dic) {
+                    if (StringUtils.containsIgnoreCase(ss, searchTerm)) {
+                        results.add(ss);
+                    }
+                }
+
+                resCache.put(searchTerm, results);
+            }
         }
 
         if (results.size() > 0) {

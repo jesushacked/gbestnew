@@ -35,10 +35,9 @@
 
 <div class="container text-center">
     <div class="row">
-        <a href="http://jesus.hacked.jp">
-            <img src="images/logobest.jpg" class="img-responsive center-block"
-                 alt="Il Google delle Bestemmie"/>
-        </a>
+        <img src="images/logobest.jpg" class="img-responsive center-block"
+             alt="Il Google delle Bestemmie"/>
+        <br/>
     </div>
     <div class="row">
         <form name="f" onsubmit="return s()">
@@ -46,14 +45,17 @@
             <input type="submit" class="btn btn-danger" value="Search">
             <input type="button" class="btn btn-danger" value="Spara!" onclick="sr()">
         </form>
+        <br/>
     </div>
 
     <div class="row">
         <div id="rs0"></div>
+        <br/>
     </div>
 
     <div class="row">
         <div id="rs1"></div>
+        <br/>
     </div>
 
 </div>
