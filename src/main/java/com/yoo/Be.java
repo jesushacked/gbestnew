@@ -1,5 +1,6 @@
 package com.yoo;
 
+import com.yoo.mdl.Result;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

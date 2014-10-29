@@ -8,10 +8,10 @@ $(document).ajaxStart(function () {
     $("#f :input").prop("disabled", true);
     tt = setTimeout(function () {
         $('#w').show();
-    }, 600);
+    }, 666);
 });
 
-$(document).ajaxComplete(function (event, xhr, settings) {
+$(document).ajaxComplete(function () {
     clearTimeout(tt);
     $('#w').hide();
     $("#f :input").prop("disabled", false);
@@ -35,7 +35,7 @@ function ss(st) {
         headers: { j: '19238183766162' }
     }).done(function (data) {
         if (!data || !data['d'] || !data['d'][0] || !data['d'][0]['o'] || 0 === data['d'][0]['o']) {
-            $('#rs0').html('Forse cercavi porcodio?');
+            $('#rs0').html('Forse cercavi <i>porcodio</i>?');
             $('#rs1').html('');
         } else {
             $('#rs0').html(data['d'][0]['s'] + ' (' + (1 + data['d'][0]['n']) + "/" + data['d'][0]['o'] + ')');

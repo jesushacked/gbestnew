@@ -1,5 +1,6 @@
 package com.yoo;
 
+import com.yoo.mdl.Result;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;

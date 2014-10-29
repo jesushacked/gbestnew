@@ -41,12 +41,14 @@
     </div>
     <div class="row">
         <form name="f" id="f" onsubmit="return s()">
-            <input id="ts" type="text" maxlength="20" placeholder="Porcodio Search" required>
-            <input type="submit" class="btn btn-danger" value="Search">
-            <input type="button" class="btn btn-danger" value="Spara!" onclick="sr()">
+            <input id="ts" type="text" maxlength="20" placeholder="Porcodio Search" title="Che bestemmia vuoi cercare"
+                   required>
+            <input type="submit" class="btn btn-danger" value="Search" title="Cerca una bestemmia">
+            <input id="sp" type="button" class="btn btn-danger" value="Spara!" title="Spara una bestemmia a casaccio"
+                   onclick="sr()">
         </form>
         <br/>
-        <img id="w" src="images/ajax-wait.gif">
+        <img id="w" src="images/ajax-wait.gif" alt="Attendere cristo">
     </div>
 
     <div class="row">
@@ -79,8 +81,8 @@
 </div>
 
 <p style="display: none">
-    Kolimano nudo, Kolimano sexy pictures, kolimano is
-    here, kolimano home page, KOLIMANO, kolimano i Love You, kolimano,mesk, mesk sexy pictures, mesk nudo, mesk nude
+    Kolimano nudo, Kolimano sexy pictures, kolimano is here, kolimano home page, KOLIMANO, kolimano i Love You,
+    kolimano,mesk, mesk sexy pictures, mesk nudo, mesk nude
     pictures, mesk pelato, ingegnere di ivrea, mesk java, java mesk, mesk snoopy, mesk torino, mesk ivrea, mesk tcp,
     kolimano, porcodio, diocane, prcd, official porcodio, dioboia, madonna troia, cristo, cristo cane, bestemmie,
     bestemmia, google bestemmie, il google delle bestemmie, san google, dio peto, dio negro, dio martire, dio bosco

@@ -1,4 +1,4 @@
-package com.yoo;
+package com.yoo.mdl;
 
 /**
  *
