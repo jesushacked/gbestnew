@@ -3,7 +3,7 @@
     request.getSession(true).setAttribute("auth", Boolean.TRUE);
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,6 @@
     <meta name="keywords"
           content="porcodio, diocane, bestemmie, bestemmia, google bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane, official, cristo morto, pene negro, googlebestemmie, bestemie, google bestemie, smadonner, smadonnare, smadonnamenti, bestemmier, magnotta, crocifisso, porkodio, mannaggia al bambinello, nazanegro, diofa, diofà, smoccolare, bestemmiare, imprecare, porconare, il google delle bestemmie"/>
     <meta name="description" content="IL GOOGLE DELLE BESTEMMIE, porcodio, diocane, prcd, dioboia, madonna, cristo"/>
-    <meta name="content-language" content="it"/>
     <meta name="author" content="a k p"/>
 
     <link rel="icon" href="images/favicon.ico">
