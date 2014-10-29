@@ -19,7 +19,7 @@ public class Dic {
 
 
     public Dic() throws IOException {
-        dic = new ArrayList<String>();
+        dic = new ArrayList<String>(100000);
         ran = new Random(System.nanoTime());
         resCache = new HashMap<String, List<String>>();
 
@@ -77,7 +77,7 @@ public class Dic {
             results = resCache.get(searchTerm);
 
             if (results == null) {
-                results = new ArrayList<String>();
+                results = new ArrayList<String>(4096);
 
                 for (final String ss : dic) {
                     if (StringUtils.containsIgnoreCase(ss, searchTerm)) {
