@@ -17,6 +17,7 @@ public class Be extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(Be.class);
 
     private Dic dic;
+    private final Auth auth;
 
     public Be() {
         try {
@@ -24,6 +25,8 @@ public class Be extends HttpServlet {
         } catch (IOException e) {
             logger.error("", e);
         }
+
+        auth = new Auth();
     }
 
 
@@ -43,7 +46,7 @@ public class Be extends HttpServlet {
             return;
         }
 
-        if (!"19238183766162".equals(req.getHeader("j"))) {
+        if (!auth.authCode().equals(req.getHeader("j"))) {
             resp.setStatus(506);
             return;
         }

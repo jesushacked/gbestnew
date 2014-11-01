@@ -1,3 +1,4 @@
+<%@ page import="com.yoo.Auth" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     request.getSession(true).setAttribute("auth", Boolean.TRUE);
@@ -75,7 +76,9 @@
             modo. L'eventuale utilizzo dei servizi da parte dei minori di 18 anni sottintende il permesso
             dei genitori o di chi ne ha la tutela assumendosi, questi ultimi, la responsabilità per ogni
             comportamento del minore relativamente all'accesso, all'utilizzo, al controllo ed agli abusi del
-            servizio.</p>
+            servizio.<br/>
+            <a href="mailto:gbest@mail.md">Abuse</a>
+        </p>
     </div>
 </div>
 
@@ -120,6 +123,7 @@
     the dano hood, dano nepal, namaste, hooray ho, hora hora hora, da no hood, 50 cent in da no hood
     dano dixit, bantumi, stritolato, sardinia air lines, nigger maphia, thelirius, the lirius, the.lirius, delirius!
     iscristo del porco del quale nulla mai si butta via
+    <input type="hidden" id="authz" value="<%=new Auth().authCode()%>">
 </p>
 
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

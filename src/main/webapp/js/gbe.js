@@ -32,7 +32,7 @@ function ss(st) {
         url: 'q.nrk',
         dataType: 'json',
         data: { q: st },
-        headers: { j: '19238183766162' }
+        headers: { j: $('#authz').val() }
     }).done(function (data) {
         if (!data || !data['d'] || !data['d'][0] || !data['d'][0]['o'] || 0 === data['d'][0]['o']) {
             $('#rs0').html('Forse cercavi <i>porcodio</i>?');
