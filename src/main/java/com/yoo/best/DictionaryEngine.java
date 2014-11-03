@@ -1,9 +1,11 @@
-package com.yoo;
+package com.yoo.best;
 
-import com.yoo.mdl.Result;
+import com.yoo.model.Result;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,23 +14,30 @@ import java.util.*;
 /**
  *
  */
-public class Dic {
+public class DictionaryEngine {
+    private static final Logger logger = LoggerFactory.getLogger(DictionaryEngine.class);
+
     private final Map<String, List<String>> resCache;
     private final List<String> dic;
-    private final Random ran;
+    private final Random rnd;
 
 
-    public Dic() throws IOException {
+    public DictionaryEngine() {
         dic = new ArrayList<String>(100000);
-        ran = new Random(System.nanoTime());
+        rnd = new Random(System.nanoTime());
         resCache = new HashMap<String, List<String>>();
 
         reload();
     }
 
-    public void reload() throws IOException {
-        for (final String line : FileUtils.readLines(new File("/var/final.txt"), Charsets.UTF_8)) {
-            dic.add(escape(line));
+
+    public void reload() {
+        try {
+            for (final String line : FileUtils.readLines(new File("/var/final.txt"), Charsets.UTF_8)) {
+                dic.add(escape(line));
+            }
+        } catch (IOException ex) {
+            logger.error("", ex);
         }
 
         resCache.clear();
@@ -41,7 +50,7 @@ public class Dic {
 
 
     public Result any() {
-        final int resNum = ran.nextInt(dic.size());
+        final int resNum = rnd.nextInt(dic.size());
         return new Result(dic.get(resNum), resNum, dic.size());
     }
 
@@ -90,7 +99,7 @@ public class Dic {
         }
 
         if (results.size() > 0) {
-            final int resNum = ran.nextInt(results.size());
+            final int resNum = rnd.nextInt(results.size());
 
             return new Result(results.get(resNum), resNum, results.size());
         } else {

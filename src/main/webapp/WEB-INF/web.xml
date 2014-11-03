@@ -5,12 +5,16 @@
 <web-app>
     <display-name>backend</display-name>
 
+        <listener>
+        <listener-class>com.yoo.web.AppContextListener</listener-class>
+    </listener>
+
     <servlet>
-        <servlet-name>receiver</servlet-name>
-        <servlet-class>com.yoo.Be</servlet-class>
+        <servlet-name>query</servlet-name>
+        <servlet-class>com.yoo.web.BackendServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>receiver</servlet-name>
+        <servlet-name>query</servlet-name>
         <url-pattern>*.nrk</url-pattern>
     </servlet-mapping>
 

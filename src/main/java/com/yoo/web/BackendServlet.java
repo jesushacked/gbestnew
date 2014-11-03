@@ -1,6 +1,8 @@
-package com.yoo;
+package com.yoo.web;
 
-import com.yoo.mdl.Result;
+import com.yoo.best.DictionaryEngine;
+import com.yoo.model.Result;
+import com.yoo.web.security.Auth;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,19 +15,14 @@ import java.io.IOException;
 /**
  *
  */
-public class Be extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(Be.class);
+public class BackendServlet extends HttpServlet {
+    private static final Logger logger = LoggerFactory.getLogger(BackendServlet.class);
 
-    private Dic dic;
+    private final DictionaryEngine dictionaryEngine;
     private final Auth auth;
 
-    public Be() {
-        try {
-            dic = new Dic();
-        } catch (IOException e) {
-            logger.error("", e);
-        }
-
+    public BackendServlet() {
+        dictionaryEngine = new DictionaryEngine();
         auth = new Auth();
     }
 
@@ -51,18 +48,18 @@ public class Be extends HttpServlet {
             return;
         }
 
-        final String q = dic.normalize(req.getParameter("q"));
+        final String q = dictionaryEngine.normalize(req.getParameter("q"));
 
         final Result[] r = new Result[2];
 
         if (StringUtils.isNotBlank(q)) {
-            r[0] = dic.search(q);
-            r[1] = dic.search(q);
+            r[0] = dictionaryEngine.search(q);
+            r[1] = dictionaryEngine.search(q);
 
             logger.debug("Request handled [{}]", q);
         } else {
-            r[0] = dic.any();
-            r[1] = dic.any();
+            r[0] = dictionaryEngine.any();
+            r[1] = dictionaryEngine.any();
 
             logger.debug("Request handled");
         }

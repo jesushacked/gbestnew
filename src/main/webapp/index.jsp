@@ -1,4 +1,4 @@
-<%@ page import="com.yoo.Auth" %>
+<%@ page import="com.yoo.web.security.Auth" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     request.getSession(true).setAttribute("auth", Boolean.TRUE);
@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="HandheldFriendly" content="True">
-    <title>Il Google delle Bestemmie </title>
+    <title>Il Google delle Bestemmie</title>
     <meta name="generator" content="HTML Tidy for Linux/666 (vers 1 September 2005), see www.infer.no"/>
     <meta name="keywords"
           content="porcodio, diocane, bestemmie, bestemmia, google bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane, official, cristo morto, pene negro, googlebestemmie, bestemie, google bestemie, smadonner, smadonnare, smadonnamenti, bestemmier, magnotta, crocifisso, porkodio, mannaggia al bambinello, nazanegro, diofa, diofà, smoccolare, bestemmiare, imprecare, porconare, il google delle bestemmie"/>

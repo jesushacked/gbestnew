@@ -45,5 +45,7 @@ function ss(st) {
                 $('#rs1').html(data['d'][1]['s'] + ' (' + (1 + data['d'][1]['n']) + "/" + data['d'][1]['o'] + ')');
             }
         }
+    }).fail(function() {
+        window.top.location.reload(true);
     });
 }
