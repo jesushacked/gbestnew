@@ -10,11 +10,11 @@
     </listener>
 
     <servlet>
-        <servlet-name>query</servlet-name>
+        <servlet-name>receiver</servlet-name>
         <servlet-class>com.yoo.web.BackendServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>query</servlet-name>
+        <servlet-name>receiver</servlet-name>
         <url-pattern>*.nrk</url-pattern>
     </servlet-mapping>
 

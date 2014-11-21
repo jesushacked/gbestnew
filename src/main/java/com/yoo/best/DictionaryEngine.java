@@ -2,13 +2,11 @@ package com.yoo.best;
 
 import com.yoo.model.Result;
 import org.apache.commons.io.Charsets;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -17,65 +15,80 @@ import java.util.*;
 public class DictionaryEngine {
     private static final Logger logger = LoggerFactory.getLogger(DictionaryEngine.class);
 
-    private final Map<String, List<String>> resCache;
     private final List<String> dic;
+    private final List<File> dicFiles;
+    private final Map<String, List<String>> resCache;
     private final Random rnd;
 
 
     public DictionaryEngine() {
-        dic = new ArrayList<String>(100000);
+        dic = new ArrayList<>(100000);
         rnd = new Random(System.nanoTime());
-        resCache = new HashMap<String, List<String>>();
+        resCache = new HashMap<>();
+        dicFiles = new ArrayList<>(5);
+        dicFiles.add(new File("/var/final.txt"));
+        dicFiles.add(new File("/var/final_gb.txt"));
+        dicFiles.add(new File("/var/final_add.txt"));
+        dicFiles.add(new File("/var/said.txt"));
 
         reload();
     }
 
 
     public void reload() {
-        try {
-            for (final String line : FileUtils.readLines(new File("/var/final.txt"), Charsets.UTF_8)) {
-                dic.add(escape(line));
+        for (final File f : dicFiles) {
+            if (f.exists() && f.canRead()) {
+
+                try (final BufferedReader bi = new BufferedReader(
+                        new InputStreamReader(new FileInputStream(f), Charsets.UTF_8))) {
+
+                    String line;
+
+                    while ((line = bi.readLine()) != null) {
+                        final String escaped = normalizeLine(line);
+
+                        dic.add(escaped);
+                    }
+                } catch (final IOException ex) {
+                    logger.error("", ex);
+                }
             }
-        } catch (IOException ex) {
-            logger.error("", ex);
         }
 
         resCache.clear();
+
+        logger.info("gb loaded");
     }
 
 
-    private String escape(final String l) {
-        return StringUtils.replaceEach(l, new String[] { "\"", "\r", "\n" }, new String[] { "\\\"", "", "" });
+    private String normalizeLine(final String l) {
+        return StringUtils.replaceEach(l,
+                new String[] { "\"", "\r", "\n" }, new String[] { "\\\"", "", "" });
     }
 
 
-    public Result any() {
-        final int resNum = rnd.nextInt(dic.size());
-        return new Result(dic.get(resNum), resNum, dic.size());
-    }
-
-
-    public String normalize(final String searchTerm) {
+    public String normalizeSearchTerm(final String searchTerm) {
         if (StringUtils.isBlank(searchTerm)) {
             return "";
         } else {
-            return StringUtils.substring(searchTerm, 0, Math.min(10, searchTerm.length()));
+            return StringUtils.trim(StringUtils.substring(
+                    searchTerm, 0, Math.min(12, searchTerm.length())));
         }
-
-//        final String searchTermShortened = StringUtils.substring(searchTerm, 0, Math.min(10, searchTerm.length()));
-//        final StringBuilder normalizedSearchTerm = new StringBuilder();
-//
-//        for (final char c : searchTermShortened.toCharArray()) {
-//            if (CharUtils.isAsciiPrintable(c)) {
-//                normalizedSearchTerm.append(c);
-//            }
-//        }
-//
-//        return normalizedSearchTerm.toString().toLowerCase();
     }
 
 
-    public Result search(final String searchTerm) {
+    public Result[] any2() {
+        final int resNum1 = rnd.nextInt(dic.size());
+        final int resNum2 = nextInt(dic.size(), resNum1);
+
+        return new Result[] {
+                new Result(dic.get(resNum1), resNum1, dic.size()),
+                new Result(dic.get(resNum2), resNum2, dic.size())
+        };
+    }
+
+
+    public Result[] search2(final String searchTerm) {
         List<String> results;
 
         synchronized (this) {
@@ -86,7 +99,7 @@ public class DictionaryEngine {
             results = resCache.get(searchTerm);
 
             if (results == null) {
-                results = new ArrayList<String>(4096);
+                results = new ArrayList<>(4096);
 
                 for (final String ss : dic) {
                     if (StringUtils.containsIgnoreCase(ss, searchTerm)) {
@@ -99,12 +112,30 @@ public class DictionaryEngine {
         }
 
         if (results.size() > 0) {
-            final int resNum = rnd.nextInt(results.size());
+            final int resNum1 = rnd.nextInt(results.size());
+            final int resNum2 = nextInt(results.size(), resNum1);
 
-            return new Result(results.get(resNum), resNum, results.size());
+            return new Result[] {
+                    new Result(results.get(resNum1), resNum1, results.size()),
+                    new Result(results.get(resNum2), resNum2, results.size()),
+            };
+
         } else {
-            return new Result("", 0, 0);
+            return new Result[] { new Result("", 0, 0) };
         }
     }
+
+
+    private int nextInt(final int max, final int exclude) {
+        int attempts = 0;
+        int nrnd = rnd.nextInt(max);
+
+        while (exclude == nrnd && attempts++ < 33) {
+            nrnd = rnd.nextInt(max);
+        }
+
+        return nrnd;
+    }
+
 
 }

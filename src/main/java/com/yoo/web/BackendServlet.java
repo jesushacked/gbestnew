@@ -1,6 +1,7 @@
 package com.yoo.web;
 
 import com.yoo.best.DictionaryEngine;
+import com.yoo.best.SayEngine;
 import com.yoo.model.Result;
 import com.yoo.web.security.Auth;
 import org.apache.commons.lang.StringUtils;
@@ -19,11 +20,13 @@ public class BackendServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(BackendServlet.class);
 
     private final DictionaryEngine dictionaryEngine;
+    private final SayEngine sayEngine;
     private final Auth auth;
 
     public BackendServlet() {
-        dictionaryEngine = new DictionaryEngine();
         auth = new Auth();
+        dictionaryEngine = new DictionaryEngine();
+        sayEngine = new SayEngine();
     }
 
 
@@ -48,28 +51,50 @@ public class BackendServlet extends HttpServlet {
             return;
         }
 
-        final String q = dictionaryEngine.normalize(req.getParameter("q"));
-
-        final Result[] r = new Result[2];
-
-        if (StringUtils.isNotBlank(q)) {
-            r[0] = dictionaryEngine.search(q);
-            r[1] = dictionaryEngine.search(q);
-
-            logger.debug("Request handled [{}]", q);
-        } else {
-            r[0] = dictionaryEngine.any();
-            r[1] = dictionaryEngine.any();
-
-            logger.debug("Request handled");
-        }
-
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().print("{\"d\":[" +
-                "{\"s\":\"" + r[0].getRes() + "\",\"n\":" + r[0].getResNum() + ",\"o\":" + r[0].getResNumOf() + "}," +
-                "{\"s\":\"" + r[1].getRes() + "\",\"n\":" + r[1].getResNum() + ",\"o\":" + r[1].getResNumOf() + "}" +
-                "]}");
+
+        final String op = req.getParameter("op");
+
+        if ("q".equals(op)) {
+            final String q = dictionaryEngine.normalizeSearchTerm(req.getParameter("q"));
+
+            Result[] r;
+
+            if (StringUtils.isNotBlank(q)) {
+                r = dictionaryEngine.search2(q);
+
+                logger.debug("Request handled [{}]", q);
+            } else {
+                r = dictionaryEngine.any2();
+
+                logger.debug("Request handled");
+            }
+
+            resp.getWriter().print("{\"d\":[");
+
+            resp.getWriter().print(
+                    "{\"s\":\"" + r[0].getRes() + "\",\"n\":" + r[0].getResNum() + ",\"o\":" + r[0].getResNumOf() + "}");
+
+            if (r.length > 1) {
+                resp.getWriter().print(
+                        ",{\"s\":\"" + r[1].getRes() + "\",\"n\":" + r[1].getResNum() + ",\"o\":" + r[1].getResNumOf() + "}");
+            }
+
+            resp.getWriter().print("]}");
+
+        } else if ("p".equals(op)) {
+//            final String b = req.getParameter("b");
+
+        } else if ("s".equals(op)) {
+            final String say = req.getParameter("s");
+
+            if (StringUtils.isNotBlank(say)) {
+                sayEngine.say(say);
+            }
+
+            resp.getWriter().print("{}");
+        }
     }
 
 }
