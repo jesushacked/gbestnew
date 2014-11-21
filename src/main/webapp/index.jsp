@@ -10,10 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="HandheldFriendly" content="True">
-    <title>Il Google delle Bestemmie</title>
+    <title>Il Golem delle Bestemmie</title>
     <meta name="generator" content="HTML Tidy for Linux/666 (vers 1 September 2005), see www.infer.no"/>
     <meta name="keywords"
-          content="porcodio, diocane, bestemmie, bestemmia, google bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane, official, cristo morto, pene negro, googlebestemmie, bestemie, google bestemie, smadonner, smadonnare, smadonnamenti, bestemmier, magnotta, crocifisso, porkodio, mannaggia al bambinello, nazanegro, diofa, diofà, smoccolare, bestemmiare, imprecare, porconare, il google delle bestemmie"/>
+          content="porcodio, diocane, bestemmie, bestemmia, golem delle bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane, official, cristo morto, pene negro, golembestemmie, bestemmie, golem bestemmie, smadonner, smadonnare, smadonnamenti, bestemmier, magnotta, crocifisso, porkodio, mannaggia al bambinello, nazanegro, diofa, diofà, smoccolare, bestemmiare, imprecare, porconare, il golem delle bestemmie"/>
     <meta name="description" content="IL GOOGLE DELLE BESTEMMIE, porcodio, diocane, prcd, dioboia, madonna, cristo"/>
     <meta name="author" content="a k p"/>
 
@@ -36,8 +36,8 @@
 
 <div class="container text-center">
     <div class="row">
-        <img src="images/logobest.jpg" class="img-responsive center-block"
-             alt="Il Google delle Bestemmie"/>
+        <img src="images/logoBestGG.png" class="img-responsive center-block"
+             alt="Il Golem delle Bestemmie"/>
         <br/>
     </div>
 
@@ -103,7 +103,7 @@
     kolimano,mesk, mesk sexy pictures, mesk nudo, mesk nude
     pictures, mesk pelato, ingegnere di ivrea, mesk java, java mesk, mesk snoopy, mesk torino, mesk ivrea, mesk tcp,
     kolimano, porcodio, diocane, prcd, official porcodio, dioboia, madonna troia, cristo, cristo cane, bestemmie,
-    bestemmia, google bestemmie, il google delle bestemmie, san google, dio peto, dio negro, dio martire, dio bosco
+    bestemmia, golem bestemmie, il golem delle bestemmie, san golem, dio peto, dio negro, dio martire, dio bosco
     di
     merde, dio cadavere, dio sarcofago, official porcodio, official PRCD, diorave, diocane, diorave.mod, diopene,
     dionegro, nigger maphia, dio ano banzai, dio ano bastardo, dio ANO BUCATO,
@@ -123,14 +123,14 @@
     porco e porco e dio, dio cane porco dio santo bastardo, dio cane porco dio zum zum zum, dio cane porco IDDIO,
     dio
     cane porco il dio iccane lurido figlio di quattro demoni e della figlia di un porcodio arrostito sulle palle del
-    demonio, dio cane porco impanato, googlebestemmie, IL GOOGLE DELLE BESTEMMIE, PORCODIO
+    demonio, dio cane porco impanato, golembestemmie, IL GOOGLE DELLE BESTEMMIE, PORCODIO
     Punx, dano, Punx nudo, dano nudo, dano nude pictures, Punx nude pictures, smoccolare, bestemmiare, imprecare,
     porconare, bardano, bardano di dano, dano bardano, banano, albero di banano, berluscone, berluscao, berluskao,
     bill
     gates porcodio, windows porcodio, scimmione, gibibbo, nigger, nigga, niggaz, niggas, heynigga, hellonigga,
     uomotalpa, uomotalpa nudo, uomotalpa gay, uomotalpa nude pictures, uomotalpa hot
-    porcodio, diocane, bestemmie, bestemmia, google bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane,
-    official, cristo morto, pene negro, googlebestemmie, bestemie, google bestemie, smadonner, smadonnare,
+    porcodio, diocane, bestemmie, bestemmia, golem bestemmie, madonna, cristo, betlemme, kolimano, prcd, diocane,
+    official, cristo morto, pene negro, golembestemmie, bestemie, golem bestemie, smadonner, smadonnare,
     smadonnamenti, bestemmier, magnotta, crocifisso, porkodio, mannaggia al bambinello, nazanegro, diofa, diofà,
     smoccolare, bestemmiare, imprecare, porconare
     dano dixit, ipse dixit, babbo satanale, babbo cristo, cristo in cariola, cristo bucato, mesk cesare ragazzi,
